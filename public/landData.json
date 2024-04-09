@@ -1,0 +1,111 @@
+[
+    {
+      "id": 1,
+      "estate_title": "Green Acres Farm",
+      "segment_name": "Agricultural Land",
+      "description": "A beautiful farmland with lush greenery and fertile soil, perfect for farming various crops.",
+      "price": 50000,
+      "status": "sale",
+      "area": "5 acres",
+      "location": "Rural Valley, California",
+      "facilities": ["Water Well", "Barn", "Irrigation System"],
+      "image_url": "https://i.ibb.co/jgdMjVP/227987102-4226215844082581-2407452661746502708-n.jpg"
+    },
+    {
+      "id": 2,
+      "estate_title": "Golden Harvest Estate",
+      "segment_name": "Agricultural Land",
+      "description": "A vast expanse of agricultural land with abundant sunlight and panoramic views.",
+      "price": 70000,
+      "status": "sale",
+      "area": "10 acres",
+      "location": "Fertile Plains, Iowa",
+      "facilities": ["Tractor Shed", "Farmhouse", "Fencing"],
+      "image_url": "https://i.ibb.co/yn8bJTd/10308158-1480044065575841-7078613705526317307-n.jpg"
+    },
+    {
+      "id": 3,
+      "estate_title": "Sunrise Meadows",
+      "segment_name": "Agricultural Land",
+      "description": "A serene farmland surrounded by rolling hills and fresh air, ideal for organic farming.",
+      "price": 3000,
+      "status": "rent",
+      "area": "2 acres",
+      "location": "Sunshine Valley, Oregon",
+      "facilities": ["Greenhouse", "Tool Shed", "Pond"],
+      "image_url": "https://i.ibb.co/X2XKzgz/images.jpg"
+    },
+    {
+      "id": 4,
+      "estate_title": "Harvest Haven Ranch",
+      "segment_name": "Agricultural Land",
+      "description": "A picturesque ranch with ample grazing land and clear streams, suitable for raising livestock.",
+      "price": 100000,
+      "status": "sale",
+      "area": "20 acres",
+      "location": "Meadowlands, Texas",
+      "facilities": ["Stables", "Hay Barn", "Livestock Pens"],
+      "image_url": "https://i.ibb.co/DKrk5Hc/horse-haven-ranch-26.jpg"
+    },
+    {
+      "id": 5,
+      "estate_title": "Rustic Fields Estate",
+      "segment_name": "Agricultural Land",
+      "description": "A charming countryside property with rustic charm and fertile soil for crop cultivation.",
+      "price": 4000,
+      "status": "rent",
+      "area": "3 acres",
+      "location": "Rustic County, Montana",
+      "facilities": ["Fruit Orchard", "Chicken Coop", "Farm Stand"],
+      "image_url": "https://i.ibb.co/WyWkN6h/images-1.jpg"
+    },
+    {
+      "id": 6,
+      "estate_title": "Gentle Breeze Farm",
+      "segment_name": "Agricultural Land",
+      "description": "A tranquil farmstead with gentle breezes and open fields, suitable for organic agriculture.",
+      "price": 60000,
+      "status": "sale",
+      "area": "8 acres",
+      "location": "Windward Valley, Kansas",
+      "facilities": ["Vegetable Garden", "Beehives", "Workshop"],
+      "image_url": "https://i.ibb.co/CwkBT2j/043-E6367-67-E6-49-B6-A01-E-54-D5786-B6373-scaled.webp"
+    },
+    {
+      "id": 7,
+      "estate_title": "Misty Meadows Ranch",
+      "segment_name": "Agricultural Land",
+      "description": "A misty ranch nestled in the hills with grazing pastures and a tranquil atmosphere.",
+      "price": 80000,
+      "status": "sale",
+      "area": "15 acres",
+      "location": "Misty Hills, Vermont",
+      "facilities": ["Milking Parlor", "Pump House", "Forest Trails"],
+      "image_url": "https://i.ibb.co/w02V1Hf/images-2.jpg"
+    },
+    {
+      "id": 8,
+      "estate_title": "Sunny Fields Estate",
+      "segment_name": "Agricultural Land",
+      "description": "A sunny estate with fertile fields and clear skies, perfect for sustainable farming practices.",
+      "price": 3500,
+      "status": "rent",
+      "area": "4 acres",
+      "location": "Sunnyvale, Arizona",
+      "facilities": ["Solar Panels", "Rainwater Harvesting System", "Fencing"],
+      "image_url": "https://i.ibb.co/0Fv6rXt/6-3.webp"
+    },
+    {
+      "id": 9,
+      "estate_title": "Oakwood Ranch",
+      "segment_name": "Agricultural Land",
+      "description": "An oak-studded ranch with rolling hills and natural beauty, offering a peaceful retreat for farming.",
+      "price": 90000,
+      "status": "sale",
+      "area": "25 acres",
+      "location": "Oakwood Valley, Colorado",
+      "facilities": ["Rustic Cabin", "Pond", "Pastureland"],
+      "image_url": "https://i.ibb.co/196QPFW/Banning-Lewis-Ranch.jpg"
+    }
+  ]
+  
