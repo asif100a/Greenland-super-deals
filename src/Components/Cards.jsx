@@ -3,7 +3,6 @@ import Card from './Card';
 
 const Cards = () => {
     const cards = useLoaderData();
-    console.log(cards)
     return (
         <div className="mt-16 space-y-6 pt-3 border-t-4 border-[#88ee88dd] rounded-t-[2rem] bg-[#f4ecf4a1]">
             <h1 className="text-4xl font-bold text-[#111010] text-center">Our available firms</h1>

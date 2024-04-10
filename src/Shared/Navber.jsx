@@ -1,7 +1,9 @@
+import { Link, NavLink } from "react-router-dom";
+
 const Navber = () => {
 
     const navLinks = <>
-        <li><a>Home</a></li>
+        <li><NavLink to={'/'}>Home</NavLink></li>
         <li><a>Update profile</a></li>
         <li><a>Your profile</a></li>
 
@@ -45,7 +47,7 @@ const Navber = () => {
             </div>
 
             <div className="navbar-end">
-                <a className="btn">Login</a>
+                <Link to={'/login'} className="btn">Login</Link>
             </div>
         </div>
     );
