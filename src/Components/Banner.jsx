@@ -11,9 +11,14 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 const Banner = () => {
+  const greenland = '"Greenland Super Firms"'
   return (
-    <div className='relative'>
-      <div className='w-full'>
+    <div className=''>
+      <div className='mb-8'>
+        <h1 className='text-4xl font-bold text-center mb-6 pt-6'>Greenland Super Firms</h1>
+        <p className="mt-6 w-[48rem] text-center mx-auto">In recent years, Greenland super firms has been quietly undergoing a transformation, positioning itself as a new frontier for economic expansion. Among the most notable developments is the emergence of what experts are terming {greenland} — companies </p>
+      </div>
+      <div className='w-[70%] mx-auto'>
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           spaceBetween={50}
@@ -23,16 +28,16 @@ const Banner = () => {
           scrollbar={{ draggable: true }}
         >
           <SwiperSlide>
-            <img src="https://i.ibb.co/zQJrfpC/Slide-img-1.jpg" alt="" style={{ width: '100%', height: '600px', borderRadius: '24px' }} />
+            <img src="https://i.ibb.co/zQJrfpC/Slide-img-1.jpg" alt="" style={{ width: '100%', height: '400px', borderRadius: '24px' }} />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="https://i.ibb.co/Bq1N13r/Slide-img-3.png" alt="" style={{ width: '100%', height: '600px', borderRadius: '24px' }} />
+            <img src="https://i.ibb.co/Bq1N13r/Slide-img-3.png" alt="" style={{ width: '100%', height: '400px', borderRadius: '24px' }} />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="https://i.ibb.co/TPLMSwy/Slide-img-5.jpg" alt="" style={{ width: '100%', height: '600px', borderRadius: '24px' }} />
+            <img src="https://i.ibb.co/TPLMSwy/Slide-img-5.jpg" alt="" style={{ width: '100%', height: '400px', borderRadius: '24px' }} />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="https://i.ibb.co/sRXRXFP/Slide-img-4.webp" alt="" style={{ width: '100%', height: '600px', borderRadius: '24px' }} />
+            <img src="https://i.ibb.co/sRXRXFP/Slide-img-4.webp" alt="" style={{ width: '100%', height: '400px', borderRadius: '24px' }} />
           </SwiperSlide>
         </Swiper>
       </div>

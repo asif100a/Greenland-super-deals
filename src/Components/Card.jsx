@@ -16,14 +16,15 @@ const Card = ({ card }) => {
     } = card;
 
     return (
-        <div className='flex gap-2 border border-[#88ee88dd] p-3 rounded-xl'>
+        <div className='flex gap-4 border border-[#88ee88dd] bg-gray-50 p-3 rounded-xl w-[80%] mx-auto'>
             <div>
-                <img src={image_url} alt="image" className='w-48 h-32 border rounded-md' />
+                <img src={image_url} alt="image" className='w-[312px] h-[176px] border rounded-md' />
                 <button className="btn h-[2rem] min-h-[2rem] border border-orange-400 font-bold text-purple-600 mt-3">View Property</button>
             </div>
             <div>
-                <h1 className='text-2xl font-medium mb-4'>{estate_title}</h1>
-                <div className='flex justify-between gap-3 mb-3'>
+                <h1 className='text-2xl font-medium mb-1'>{estate_title}</h1>
+                <p className='mb-4'>{description?.slice(0, 120)}</p>
+                <div className='flex justify-between gap-3 mb-2'>
                     <p className='bg-[#88ee88dd] text-gray-800 font-semibold px-6 py-1 rounded-full'>Price : {price}</p>
                     <p className='bg-[#ec96ec] text-gray-800 font-semibold px-6 py-1 rounded-full'>Status : {status}</p>
                 </div>
