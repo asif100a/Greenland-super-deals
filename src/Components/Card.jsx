@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 
 const Card = ({ card }) => {
-    console.log(card)
     const {
         id,
         estate_title,

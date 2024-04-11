@@ -1,44 +1,67 @@
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form"
+import useAuth from "../../Hooks/useAuth";
 
 const Login = () => {
     const doNot = "Don't";
 
+    const { LoginWithEmailAndPassword } = useAuth();
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm();
+
+    const onSubmit = (data) => {
+        const { email, password } = data;
+
+        LoginWithEmailAndPassword(email, password) 
+            .then(res => {
+                console.log(res.user);
+            })
+            .catch(err => {
+                console.error(err);
+            });
+    };
+
     return (
-        <div className="w-full h-screen flex justify-center items-center">
-            <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-[#f2f6f2dd] dark:text-gray-800">
-                <div className="mb-8 text-center">
-                    <h1 className="my-3 text-4xl font-bold">Login Your Account</h1>
-                    <p className="text-sm dark:text-gray-600">Login to access your account</p>
-                </div>
-                <form noValidate="" action="" className="space-y-6">
-                    <div className="space-y-4">
-                        <div>
-                            <label htmlFor="email" className="block mb-2 text-sm">Email address</label>
-                            <input type="email" name="email" id="email" placeholder="leroy@jenkins.com" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800" />
-                        </div>
-                        <div>
-                            <div className="flex justify-between mb-2">
-                                <label htmlFor="password" className="text-sm">Password</label>
-                                <Link rel="noopener noreferrer" href="#" className="text-xs hover:underline dark:text-gray-600">Forgot password?</Link>
-                            </div>
-                            <input type="password" name="password" id="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800" />
+        <div className="my-16 flex justify-center items-center">
+            <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-[#f2f6f2dd] dark:text-gray-800">
+                <h1 className="text-3xl font-bold text-center">Login</h1>
+                <form onSubmit={handleSubmit(onSubmit)} noValidate="" action="" className="space-y-6">
+                    <div className="space-y-1 text-sm">
+                        <label htmlFor="email" className="block dark:text-gray-600">Email address</label>
+                        <input
+                            type="email"
+                            {...register("email")}
+                            name="email"
+                            id="email"
+                            placeholder="Enter email" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800"
+                        />
+                    </div>
+                    <div className="space-y-1 text-sm">
+                        <label htmlFor="password" className="block dark:text-gray-600">Password</label>
+                        <input
+                            type="password"
+                            name="password"
+                            id="password"
+                            placeholder="Password"
+                            className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800"
+                            {...register("password")}
+                        />
+                        <div className="flex justify-end text-xs dark:text-gray-600">
+                            <a rel="noopener noreferrer" href="#">Forgot Password?</a>
                         </div>
                     </div>
-                    <div className="space-y-1">
-                        <div>
-                            <button type="button" className="btn w-full px-8 py-3 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50">Sign in</button>
-                        </div>
-                        <p className="pt-2 text-sm text-end dark:text-gray-600">{doNot} have an account yet?
-                            <Link to={'/sign_up'} rel="noopener noreferrer" href="#" className="hover:underline dark:text-violet-600 ml-1 text-blue-600">Sign up</Link> now.
-                        </p>
-                    </div>
+                    <button className="block w-full p-3 text-center rounded-sm dark:text-gray-50 dark:bg-violet-600">Sign in</button>
                 </form>
-                <div className="flex items-center pt-8 space-x-1">
+                <div className="flex items-center pt-4 space-x-1">
                     <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
-                    <p className="px-3 text-xl font-semibold dark:text-gray-600">Login with social accounts</p>
+                    <p className="px-3 text-lg font-medium dark:text-gray-600">Login with social accounts</p>
                     <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
                 </div>
-                <div className="flex justify-center space-x-4 mt-4">
+                <div className="flex justify-center space-x-4">
                     <button aria-label="Log in with Google" className="p-3 rounded-sm">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className="w-5 h-5 fill-current">
                             <path d="M16.318 13.714v5.484h9.078c-0.37 2.354-2.745 6.901-9.078 6.901-5.458 0-9.917-4.521-9.917-10.099s4.458-10.099 9.917-10.099c3.109 0 5.193 1.318 6.38 2.464l4.339-4.182c-2.786-2.599-6.396-4.182-10.719-4.182-8.844 0-16 7.151-16 16s7.156 16 16 16c9.234 0 15.365-6.49 15.365-15.635 0-1.052-0.115-1.854-0.255-2.651z"></path>
@@ -55,6 +78,9 @@ const Login = () => {
                         </svg>
                     </button>
                 </div>
+                <p className="text-base text-center sm:px-6 dark:text-gray-600">{doNot} have an account?
+                    <Link to={'/sign_up'} className="ml-1 text-blue-600 hover:underline">Sign up</Link>
+                </p>
             </div>
         </div>
     );
