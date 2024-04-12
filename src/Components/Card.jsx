@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const Card = ({ card }) => {
     const {
@@ -18,7 +19,7 @@ const Card = ({ card }) => {
         <div className='flex gap-4 border border-[#88ee88dd] bg-gray-50 p-3 rounded-xl w-[80%] mx-auto'>
             <div>
                 <img src={image_url} alt="image" className='w-[312px] h-[176px] border rounded-md' />
-                <button className="btn h-[2rem] min-h-[2rem] border border-orange-400 font-bold text-purple-600 mt-3">View Property</button>
+                <Link to={`/view_details/${id}`} className="btn h-[2rem] min-h-[2rem] border border-orange-400 font-bold text-purple-600 mt-3">View Property</Link>
             </div>
             <div>
                 <h1 className='text-2xl font-medium mb-1'>{estate_title}</h1>
