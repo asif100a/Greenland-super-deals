@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form"
 import useAuth from "../../Hooks/useAuth";
+import { useState } from "react";
+import toast, { Toaster } from 'react-hot-toast';
 
 const SignUp = () => {
-    const {emailAndPasswordToSignIn} = useAuth();
+    const {emailAndPasswordToSignIn, user} = useAuth();
+
+    // const [registered, setRegistered] = useState([]);
 
     const {
         register,
@@ -15,8 +19,8 @@ const SignUp = () => {
         const {name, email, photo_url, password, repeatPassword, checkbox} = data;
         
         emailAndPasswordToSignIn(email, password)
-            .then((res) => {
-                console.log(res);
+            .then(() => {
+                toast.success('You have registered successfully');
             })
             .catch((err) => {
                 console.error(err);
@@ -102,10 +106,14 @@ const SignUp = () => {
                 <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Register new account</button>
                 <div className="pt-6">
                     Already have an account?
-                    <Link to={'/login'} className="text-blue-600 hover:underline">Login now</Link>.
+                    <Link to={'/login'} className="text-blue-600 hover:underline ml-1">Login now</Link>.
                 </div>
             </form>
-
+            <div>
+                {
+                    user && <Toaster />
+                }
+            </div>
         </div>
     );
 };

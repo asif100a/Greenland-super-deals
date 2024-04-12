@@ -1,6 +1,9 @@
 import { Link, NavLink } from "react-router-dom";
+import useAuth from "../Hooks/useAuth";
 
 const Navber = () => {
+    const {user} = useAuth();
+    console.log(user)
 
     const navLinks = <>
         <li><NavLink to={'/'}>Home</NavLink></li>
@@ -28,7 +31,12 @@ const Navber = () => {
                 </ul>
             </div>
 
-            <div className="dropdown dropdown-end">
+
+            <div className="navbar-end">
+                {
+                    user && <p>{user.email}</p>
+                }
+            <div className="dropdown dropdown-end mr-6">
                 <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                     <div className="w-10 rounded-full">
                         <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
@@ -45,8 +53,6 @@ const Navber = () => {
                     <li><a>Logout</a></li>
                 </ul>
             </div>
-
-            <div className="navbar-end">
                 <Link to={'/login'} className="btn">Login</Link>
             </div>
         </div>

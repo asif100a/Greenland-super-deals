@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form"
 import useAuth from "../../Hooks/useAuth";
+import { useState } from "react";
 
 const Login = () => {
     const doNot = "Don't";
+    const [emailError, setEmailError] = useState("");
+    const [passwordError, setPasswordError] = useState("");
 
     const { LoginWithEmailAndPassword } = useAuth();
 
@@ -13,8 +16,32 @@ const Login = () => {
         formState: { errors },
     } = useForm();
 
+    
     const onSubmit = (data) => {
         const { email, password } = data;
+        // Reset error
+        setEmailError("");
+        setPasswordError("");
+
+        if(!email){
+            setEmailError("Please provide an email")
+            return;
+        }
+
+        if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+            setEmailError("You should provide a valid email")
+            return;
+        }
+
+        if(!password){
+            setPasswordError("Please provide your password")
+            return;
+        }
+
+        if(password.length < 6){
+            setPasswordError("Please provide at least 6 characters of password")
+            return;
+        }
 
         LoginWithEmailAndPassword(email, password) 
             .then(res => {
@@ -39,6 +66,7 @@ const Login = () => {
                             id="email"
                             placeholder="Enter email" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800"
                         />
+                         {<p className="text-red-500">{emailError}</p>}
                     </div>
                     <div className="space-y-1 text-sm">
                         <label htmlFor="password" className="block dark:text-gray-600">Password</label>
@@ -50,11 +78,12 @@ const Login = () => {
                             className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800"
                             {...register("password")}
                         />
+                         {<p className="text-red-500">{passwordError}</p>}
                         <div className="flex justify-end text-xs dark:text-gray-600">
                             <a rel="noopener noreferrer" href="#">Forgot Password?</a>
                         </div>
                     </div>
-                    <button className="block w-full p-3 text-center rounded-sm dark:text-gray-50 dark:bg-violet-600">Sign in</button>
+                    <button className="btn block w-full p-3 text-center rounded-sm dark:text-gray-50 dark:bg-violet-600">Login</button>
                 </form>
                 <div className="flex items-center pt-4 space-x-1">
                     <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
