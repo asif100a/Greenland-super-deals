@@ -7,7 +7,8 @@ import toast, { Toaster } from 'react-hot-toast';
 const SignUp = () => {
     const {emailAndPasswordToSignIn, user} = useAuth();
 
-    // const [registered, setRegistered] = useState([]);
+    const [passwordError, setPasswordError] = useState("");
+    const [repeatError, setRepeatError] = useState("");
 
     const {
         register,
@@ -17,7 +18,23 @@ const SignUp = () => {
 
     const onSubmit = (data) => {
         const {name, email, photo_url, password, repeatPassword, checkbox} = data;
+
+        // Reset error
+        setPasswordError("");
+        setRepeatError("");
+
+        // Password validation
+        if(password.length < 6) {
+            setPasswordError("Password should be at least 6 characters");
+            return;
+        }
+        if(!(password === repeatPassword)) {
+            setRepeatError("Please repeat password as the same password")
+            console.log(password, repeatPassword)
+            return;
+        }
         
+        // Create user
         emailAndPasswordToSignIn(email, password)
             .then(() => {
                 toast.success('You have registered successfully');
@@ -74,6 +91,7 @@ const SignUp = () => {
                         placeholder="Enter your password"
                     />
                     {errors.password && <span className="text-red-500">Please fill out this field</span>}
+                    <p className="text-red-500">{passwordError}</p>
                 </div>
                 <div className="mb-5">
                     <label htmlFor="repeat-password" className="block mb-2 text-sm font-medium text-gray-900">Repeat password</label>
@@ -85,6 +103,7 @@ const SignUp = () => {
                         placeholder="Repeat your password"
                     />
                     {errors.repeatPassword && <span className="text-red-500">Please fill out this field</span>}
+                    <p className="text-red-500">{repeatError}</p>
                 </div>
                 <div className="mb-5">
                     <div className="flex items-start">
