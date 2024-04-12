@@ -5,13 +5,11 @@ const Card = ({ card }) => {
     const {
         id,
         estate_title,
-        segment_name,
         description,
         price,
         status,
         area,
         location,
-        facilities,
         image_url
     } = card;
 
