@@ -15,7 +15,7 @@ const Card = ({ card }) => {
 
     return (
         <div className='flex gap-4 border border-[#88ee88dd] bg-gray-50 p-3 rounded-xl w-[80%] mx-auto'>
-            <div>
+            <div className='w-[40%]'>
                 <img src={image_url} alt="image" className='w-[312px] h-[176px] border rounded-md' />
                 <Link to={`/view_details/${id}`} className="btn h-[2rem] min-h-[2rem] border border-orange-400 font-bold text-purple-600 mt-3">View Property</Link>
             </div>

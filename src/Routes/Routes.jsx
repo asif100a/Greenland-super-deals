@@ -6,6 +6,9 @@ import Login from "../Authentication/Login/Login";
 import SignUp from "../Authentication/SignUp/SignUp";
 import ViewProperty from "../Pages/ViewProperty/ViewProperty";
 import PrivateRoute from "../ProtectedRoute/PrivateRoute";
+import AboutUs from "../Pages/AboutUs/AboutUs";
+import ContactUs from "../Pages/ContactUs/ContactUs";
+import UpdateProfile from "../Pages/UpdateProfile/UpdateProfile";
 
 const routes = createBrowserRouter([
     {
@@ -33,6 +36,18 @@ const routes = createBrowserRouter([
             {
                 path: '/sign_up',
                 element: <SignUp />
+            },
+            {
+                path: '/update_profile',
+                element: <UpdateProfile />
+            },
+            {
+                path: '/about_us',
+                element: <AboutUs />
+            },
+            {
+                path: '/contact_us',
+                element: <ContactUs />
             }
         ]
     }

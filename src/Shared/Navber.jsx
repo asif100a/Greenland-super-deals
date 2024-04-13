@@ -10,8 +10,9 @@ const Navber = () => {
 
     const navLinks = <>
         <li><NavLink to={'/'}>Home</NavLink></li>
-        <li><a>Update profile</a></li>
-        <li><a>Your profile</a></li>
+        <li><NavLink to={'/update_profile'}>Update profile</NavLink></li>
+        <li><NavLink to={'/about_us'}>About us</NavLink></li>
+        <li><NavLink to={'/contact_us'}>Contact us</NavLink></li>
 
     </>
 
@@ -28,7 +29,7 @@ const Navber = () => {
                         {navLinks}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">Greenland Super Firms</a>
+                <Link to={'/'} className="text-2xl font-semibold hover:cursor-pointer">Greenland Super Firms</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
