@@ -2,6 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form"
 import useAuth from "../../Hooks/useAuth";
 import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
     const doNot = "Don't";
@@ -53,7 +54,10 @@ const Login = () => {
                 navigate(location?.state ? location.state : '/');
             })
             .catch(err => {
-                console.error(err);
+                console.error(err.message);
+                if(err.message === "Firebase: Error (auth/invalid-credential).") {
+                    toast.error('Invalid email or password')
+                }
             });
 
     };
@@ -128,6 +132,7 @@ const Login = () => {
                     <Link to={'/sign_up'} className="ml-1 text-blue-600 hover:underline">Sign up</Link>
                 </p>
             </div>
+            <Toaster />
         </div>
     );
 };

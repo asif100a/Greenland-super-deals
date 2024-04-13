@@ -3,9 +3,10 @@ import { useForm } from "react-hook-form"
 import useAuth from "../../Hooks/useAuth";
 import { useState } from "react";
 import toast, { Toaster } from 'react-hot-toast';
+import auth from "../../firebase/firebase.config";
 
 const SignUp = () => {
-    const {emailAndPasswordToSignIn, user} = useAuth();
+    const { emailAndPasswordToSignIn, user } = useAuth();
 
     const [passwordError, setPasswordError] = useState("");
     const [repeatError, setRepeatError] = useState("");
@@ -17,31 +18,54 @@ const SignUp = () => {
     } = useForm();
 
     const onSubmit = (data) => {
-        const {name, email, photo_url, password, repeatPassword, checkbox} = data;
+        const {
+            name,
+            email,
+            photo_url,
+            password,
+            repeatPassword,
+            checkbox
+        } = data;
+
+        const user = auth;
+        console.log(user)
 
         // Reset error
         setPasswordError("");
         setRepeatError("");
 
         // Password validation
-        if(password.length < 6) {
+        if (password.length < 6) {
             setPasswordError("Password should be at least 6 characters");
             return;
         }
-        if(!(password === repeatPassword)) {
+        else if(!/[A-Z]/.test(password)) {
+            setPasswordError('You should provide at least 1 character of "Uppercase"');
+            return;
+        }
+        else if(!/[a-z]/.test(password)) {
+            setPasswordError('You should provide at least 1 character of "Lowercase"')
+        }
+        else if (!(password === repeatPassword)) {
             setRepeatError("Please repeat password as the same password")
             console.log(password, repeatPassword)
             return;
         }
-        
+
         // Create user
-        emailAndPasswordToSignIn(email, password)
+        emailAndPasswordToSignIn(email, password, name, photo_url)
             .then(() => {
-                updapro
                 toast.success('You have registered successfully');
+                if(user !== null) {
+                    const displayName = user.displayName;
+                    console.log(displayName);
+                }
             })
             .catch((err) => {
-                console.error(err);
+                console.error(err.message);
+                if(err.message === "Firebase: Error (auth/email-already-in-use).") {
+                    toast.error("You can't sign up for two times")
+                }
             });
     }
 

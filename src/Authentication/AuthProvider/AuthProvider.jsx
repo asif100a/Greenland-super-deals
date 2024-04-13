@@ -8,13 +8,15 @@ export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [userName, setUserName] = useState("");
 
     // Provider
     const googleProvider = new GoogleAuthProvider();
 
     // Create user with email & password
-    const emailAndPasswordToSignIn = (email, password) => {
+    const emailAndPasswordToSignIn = (email, password, name, photo_url) => {
         setLoading(true);
+        setUserName(name);
         return createUserWithEmailAndPassword(auth, email, password);
     };
     
@@ -29,6 +31,9 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         return signInWithPopup(auth, googleProvider);
     };
+
+    // Update user profile
+    
     
     // Log out
     const logOutUser = () => {
@@ -55,7 +60,8 @@ const AuthProvider = ({ children }) => {
         logOutUser,
         googleLogin,
         user,
-        loading
+        loading,
+        userName,
     };
 
     return (

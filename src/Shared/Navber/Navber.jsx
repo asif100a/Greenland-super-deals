@@ -4,7 +4,7 @@ import logo from '../../../public/logo.png';
 import './navStyle.css'
 
 const Navber = () => {
-    const { user, logOutUser } = useAuth();
+    const { user, logOutUser, userName } = useAuth();
     console.log(user)
 
     const handleSingOut = () => {
@@ -49,14 +49,7 @@ const Navber = () => {
                             </div>
                         </div>
                         <ul tabIndex={0} className="menu menu-sm profile-child mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                            <li>
-                                <a className="justify-between">
-                                    Profile
-                                    <span className="badge">New</span>
-                                </a>
-                            </li>
-                            <li><a>Settings</a></li>
-                            <li><a>Logout</a></li>
+                            <li><a className="text-orange-600">{userName}</a></li>
                         </ul>
                     </div>
                 }
