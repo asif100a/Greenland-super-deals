@@ -5,6 +5,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Login from "../Authentication/Login/Login";
 import SignUp from "../Authentication/SignUp/SignUp";
 import ViewProperty from "../Pages/ViewProperty/ViewProperty";
+import PrivateRoute from "../ProtectedRoute/PrivateRoute";
 
 const routes = createBrowserRouter([
     {
@@ -19,7 +20,10 @@ const routes = createBrowserRouter([
             },
             {
                 path: `/view_details/:id`,
-                element: <ViewProperty />,
+                element:
+                    <PrivateRoute>
+                        <ViewProperty />
+                    </PrivateRoute>,
                 loader: () => fetch('/landData.json')
             },
             {

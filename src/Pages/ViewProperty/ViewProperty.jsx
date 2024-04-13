@@ -34,11 +34,11 @@ const ViewProperty = () => {
                     <p className="py-1 pl-1 space-y-1 shadow-md"><span className="font-semibold">Area :</span> {area}</p>
                     <p className="py-1 pl-1 space-y-1 shadow-md"><span className="font-semibold">Location :</span> {location}</p>
                     <p className="py-1 pl-1 space-y-1 shadow-md"><span className="font-semibold">Status :</span> {status}</p>
-                    <p className="py-1 pl-1 space-y-1 shadow-md"><span className="font-semibold">Our facilities : </span>
+                    <div className="py-1 pl-1 space-y-1 shadow-md"><p className="font-semibold">Our facilities : </p>
                         <ul className="list-disc ml-8">
                             {facilities.map((facility, i) => <li key={i} className="">{facility}</li>)}
                         </ul>
-                    </p>
+                    </div>
                 </div>
             </div>
 
