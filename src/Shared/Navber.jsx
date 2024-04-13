@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
+import logo from '../../public/logo.png';
 
 const Navber = () => {
     const { user, setUser, logOutUser } = useAuth();
@@ -29,7 +30,7 @@ const Navber = () => {
                         {navLinks}
                     </ul>
                 </div>
-                <Link to={'/'} className="text-2xl font-semibold hover:cursor-pointer">Greenland Super Firms</Link>
+                <Link to={'/'} className="text-2xl font-semibold hover:cursor-pointer flex justify-center items-center gap-1"><img src={logo} alt="" className="w-12 h-12 border border-green-600 bg-white" /><span>Greenland Super Deals</span></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
