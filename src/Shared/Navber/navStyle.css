@@ -1,0 +1,15 @@
+.profile{
+    position: relative;
+}
+
+.profile .profile-child{
+    position: absolute;
+    left: -60px;
+    top: 36px;
+    visibility: hidden;
+}
+
+.profile:hover .profile-child{
+    transition-delay: 400ms;
+    visibility: visible;
+}

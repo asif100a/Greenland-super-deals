@@ -37,6 +37,7 @@ const SignUp = () => {
         // Create user
         emailAndPasswordToSignIn(email, password)
             .then(() => {
+                updapro
                 toast.success('You have registered successfully');
             })
             .catch((err) => {

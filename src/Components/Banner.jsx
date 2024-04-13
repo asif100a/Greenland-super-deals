@@ -15,7 +15,7 @@ const Banner = () => {
   return (
     <div className=''>
       <div className='mb-8'>
-        <h1 className='text-4xl font-bold text-center mb-6 pt-6'>Greenland Super Firms</h1>
+        <h1 className='text-4xl font-bold text-center mb-6 pt-6'>Greenland Super Deals</h1>
         <p className="mt-6 w-[48rem] text-center mx-auto">In recent years, Greenland super firms has been quietly undergoing a transformation, positioning itself as a new frontier for economic expansion. Among the most notable developments is the emergence of what experts are terming {greenland} — companies </p>
       </div>
       <div className='w-[70%] mx-auto'>
