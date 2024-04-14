@@ -5,7 +5,6 @@ import './navStyle.css'
 
 const Navber = () => {
     const { user, logOutUser } = useAuth();
-    console.log(user)
 
     const handleSingOut = () => {
         logOutUser();
@@ -18,8 +17,8 @@ const Navber = () => {
     </>
 
     return (
-        <div className="navbar w-full bg-base-100 shadow-md">
-            <div className="w-full flex flex-row-reverse md:flex-row md:navbar-start">
+        <div className="lg:navbar pl-3 py-3 w-full bg-base-100 shadow-md">
+            <div className="flex flex-row-reverse lg:flex-row lg:navbar-start w-[100%] justify-between">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>

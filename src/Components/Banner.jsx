@@ -28,16 +28,16 @@ const Banner = () => {
           scrollbar={{ draggable: true }}
         >
           <SwiperSlide>
-            <img src="https://i.ibb.co/zQJrfpC/Slide-img-1.jpg" alt="" className='w-full h-[200px] lg:h-[400px] rounded-xl lg:rounded-3xl' />
+            <img src="https://i.ibb.co/zQJrfpC/Slide-img-1.jpg" alt="" className='w-full h-[200px] md:h-[312px] lg:h-[400px] rounded-xl lg:rounded-3xl' />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="https://i.ibb.co/Bq1N13r/Slide-img-3.png" alt="" className='w-full h-[200px] lg:h-[400px] rounded-xl lg:rounded-3xl' />
+            <img src="https://i.ibb.co/Bq1N13r/Slide-img-3.png" alt="" className='w-full h-[200px] md:h-[312px] lg:h-[400px] rounded-xl lg:rounded-3xl' />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="https://i.ibb.co/TPLMSwy/Slide-img-5.jpg" alt="" className='w-full h-[200px] lg:h-[400px] rounded-xl lg:rounded-3xl' />
+            <img src="https://i.ibb.co/TPLMSwy/Slide-img-5.jpg" alt="" className='w-full h-[200px] md:h-[312px] lg:h-[400px] rounded-xl lg:rounded-3xl' />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="https://i.ibb.co/sRXRXFP/Slide-img-4.webp" alt="" className='w-full h-[200px] lg:h-[400px] rounded-xl lg:rounded-3xl' />
+            <img src="https://i.ibb.co/sRXRXFP/Slide-img-4.webp" alt="" className='w-full h-[200px] md:h-[312px] lg:h-[400px] rounded-xl lg:rounded-3xl' />
           </SwiperSlide>
         </Swiper>
       </div>
