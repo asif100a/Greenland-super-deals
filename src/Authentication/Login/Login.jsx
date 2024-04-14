@@ -58,6 +58,9 @@ const Login = () => {
                 if(err.message === "Firebase: Error (auth/invalid-credential).") {
                     toast.error('Invalid email or password')
                 }
+                else if(err.message === "Firebase: Error (auth/network-request-failed).") {
+                    toast.error("Please check your internet connection");
+                }
             });
 
     };

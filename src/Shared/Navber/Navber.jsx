@@ -4,7 +4,7 @@ import logo from '../../../public/logo.png';
 import './navStyle.css'
 
 const Navber = () => {
-    const { user, logOutUser, userName } = useAuth();
+    const { user, logOutUser } = useAuth();
     console.log(user)
 
     const handleSingOut = () => {
@@ -52,7 +52,7 @@ const Navber = () => {
                                 <li><a className="text-orange-600">{user.displayName}</a></li>
                             </ul>
                         </div>
-                        <button className="btn mr-6">
+                        <button className="btn mr-6 hidden lg:flex">
                             <Link to={'/update_profile'}>Update profile</Link>
                         </button>
                     </>

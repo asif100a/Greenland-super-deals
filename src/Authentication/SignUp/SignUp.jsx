@@ -40,11 +40,11 @@ const SignUp = () => {
             setPasswordError("Password should be at least 6 characters");
             return;
         }
-        else if(!/[A-Z]/.test(password)) {
+        else if (!/[A-Z]/.test(password)) {
             setPasswordError('You should provide at least 1 character of "Uppercase"');
             return;
         }
-        else if(!/[a-z]/.test(password)) {
+        else if (!/[a-z]/.test(password)) {
             setPasswordError('You should provide at least 1 character of "Lowercase"')
         }
         else if (!(password === repeatPassword)) {
@@ -60,19 +60,22 @@ const SignUp = () => {
                     displayName: name,
                     photoURL: photo_url,
                 })
-                .then(res => {
-                    console.log(res);
-                })
-                .catch(err => {
-                    console.error(err);
-                });
+                    .then(res => {
+                        console.log(res);
+                    })
+                    .catch(err => {
+                        console.error(err);
+                    });
 
                 toast.success('You have registered successfully');
             })
             .catch((err) => {
                 console.error(err.message);
-                if(err.message === "Firebase: Error (auth/email-already-in-use).") {
-                    toast.error("You can't sign up for two times")
+                if (err.message === "Firebase: Error (auth/email-already-in-use).") {
+                    toast.error("You can't sign up for two times");
+                }
+                if (err.message === 'Firebase: Error (auth/network-request-failed).') {
+                    toast.error("Please check your internet connection");
                 }
             });
     }
@@ -166,6 +169,7 @@ const SignUp = () => {
                     user && <Toaster />
                 }
             </div>
+            <Toaster />
         </div>
     );
 };

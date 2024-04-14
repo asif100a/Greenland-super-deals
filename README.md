@@ -12,8 +12,9 @@ About my website:-
     Website name: Greenland Super Deals
     Live site url: 
     The main feature of my website:
-        *
-        *
-        *
+
+        * In this website has a slider for 4 image, 9 land related cards and a relevant footer.
+        * For each card has a details page where displayed all data for specific card.
+        * Authentication added by "Sign up" and "Login". User can log in using google login.
         *
         *
