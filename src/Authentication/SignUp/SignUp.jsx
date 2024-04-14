@@ -7,7 +7,7 @@ import auth from "../../firebase/firebase.config";
 import { updateProfile } from "firebase/auth";
 
 const SignUp = () => {
-    const { emailAndPasswordToSignIn, user, setUserName } = useAuth();
+    const { emailAndPasswordToSignIn, user } = useAuth();
 
     const [passwordError, setPasswordError] = useState("");
     const [repeatError, setRepeatError] = useState("");
@@ -25,7 +25,6 @@ const SignUp = () => {
             photo_url,
             password,
             repeatPassword,
-            checkbox
         } = data;
 
         const user = auth;
@@ -67,7 +66,7 @@ const SignUp = () => {
                         console.error(err);
                     });
 
-                toast.success('You have registered successfully');
+                toast.success('You have signed up successfully');
             })
             .catch((err) => {
                 console.error(err.message);

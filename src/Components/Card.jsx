@@ -17,7 +17,7 @@ const Card = ({ card }) => {
         <div className='flex flex-col lg:flex-row gap-4 border border-[#88ee88dd] bg-gray-50 p-3 rounded-xl w-[80%] mx-auto'>
             <div className='w-full lg:w-[40%]'>
                 <img src={image_url} alt="image" className='w-full lg:w-[312px] h-[176px] md:h-[228px] border rounded-md' />
-                <Link to={`/view_details/${id}`} className="btn h-[2rem] min-h-[2rem] border border-orange-400 font-bold text-purple-600 mt-3">View Property</Link>
+                <Link to={`/view_details/${id}`} state={estate_title} className="btn h-[2rem] min-h-[2rem] border border-orange-400 font-bold text-purple-600 mt-3">View Property</Link>
             </div>
             <div>
                 <h1 className='text-2xl font-medium mb-1'>{estate_title}</h1>

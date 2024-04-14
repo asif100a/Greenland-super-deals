@@ -11,7 +11,7 @@ const Login = () => {
     const [passwordError, setPasswordError] = useState("");
 
     // Login method
-    const { LoginWithEmailAndPassword, googleLogin, setUserName } = useAuth();
+    const { LoginWithEmailAndPassword, googleLogin } = useAuth();
 
     // Use location to go specific address
     const location = useLocation();
@@ -50,7 +50,9 @@ const Login = () => {
         // Login setup
         LoginWithEmailAndPassword(email, password)
             .then(res => {
-                console.log(res.user);
+                if(res.user) {
+                    toast.success('You have logged in successfully');
+                }
                 navigate(location?.state ? location.state : '/');
             })
             .catch(err => {
