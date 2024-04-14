@@ -4,9 +4,10 @@ import useAuth from "../../Hooks/useAuth";
 import { useState } from "react";
 import toast, { Toaster } from 'react-hot-toast';
 import auth from "../../firebase/firebase.config";
+import { updateProfile } from "firebase/auth";
 
 const SignUp = () => {
-    const { emailAndPasswordToSignIn, user } = useAuth();
+    const { emailAndPasswordToSignIn, user, setUserName } = useAuth();
 
     const [passwordError, setPasswordError] = useState("");
     const [repeatError, setRepeatError] = useState("");
@@ -54,12 +55,19 @@ const SignUp = () => {
 
         // Create user
         emailAndPasswordToSignIn(email, password, name, photo_url)
-            .then(() => {
+            .then((credential) => {
+                updateProfile(credential.user, {
+                    displayName: name,
+                    photoURL: photo_url,
+                })
+                .then(res => {
+                    console.log(res);
+                })
+                .catch(err => {
+                    console.error(err);
+                });
+
                 toast.success('You have registered successfully');
-                if(user !== null) {
-                    const displayName = user.displayName;
-                    console.log(displayName);
-                }
             })
             .catch((err) => {
                 console.error(err.message);

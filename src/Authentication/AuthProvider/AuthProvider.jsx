@@ -8,15 +8,16 @@ export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [userName, setUserName] = useState("");
+    // const [userName, setUserName] = useState("");
+    // console.log(userName)
 
     // Provider
     const googleProvider = new GoogleAuthProvider();
 
     // Create user with email & password
-    const emailAndPasswordToSignIn = (email, password, name, photo_url) => {
+    const emailAndPasswordToSignIn = (email, password) => {
         setLoading(true);
-        setUserName(name);
+        console.log(auth)
         return createUserWithEmailAndPassword(auth, email, password);
     };
     
@@ -61,7 +62,8 @@ const AuthProvider = ({ children }) => {
         googleLogin,
         user,
         loading,
-        userName,
+        // setUserName,
+        // userName,
     };
 
     return (

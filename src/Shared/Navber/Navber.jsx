@@ -13,7 +13,6 @@ const Navber = () => {
 
     const navLinks = <>
         <li><NavLink to={'/'}>Home</NavLink></li>
-        <li><NavLink to={'/update_profile'}>Update profile</NavLink></li>
         <li><NavLink to={'/about_us'}>About us</NavLink></li>
         <li><NavLink to={'/contact_us'}>Contact us</NavLink></li>
 
@@ -42,16 +41,23 @@ const Navber = () => {
             <div className="navbar-end">
                 {
                     user &&
-                    <div className="profile mr-6">
-                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                            <div className="w-10 rounded-full">
-                                <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                    <>
+                        <div className="profile mr-6">
+                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                </div>
                             </div>
+                            <ul tabIndex={0} className="menu menu-sm profile-child mt-3 z-[1] p-2 shadow bg-base-100 rounded-md w-52">
+                                <li><a className="text-orange-600">{user.displayName}</a></li>
+                            </ul>
                         </div>
-                        <ul tabIndex={0} className="menu menu-sm profile-child mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><a className="text-orange-600">{userName}</a></li>
-                        </ul>
-                    </div>
+                        <button className="btn mr-6">
+                            <Link to={'/update_profile'}>Update profile</Link>
+                        </button>
+                    </>
+
+
                 }
 
                 {

@@ -11,7 +11,7 @@ const Login = () => {
     const [passwordError, setPasswordError] = useState("");
 
     // Login method
-    const { LoginWithEmailAndPassword, googleLogin } = useAuth();
+    const { LoginWithEmailAndPassword, googleLogin, setUserName } = useAuth();
 
     // Use location to go specific address
     const location = useLocation();
