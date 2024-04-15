@@ -23,7 +23,7 @@ const Login = () => {
     } = useForm();
 
 
-    const onSubmit = (data) => {
+    const onSubmit = (data, e) => {
         const { email, password } = data;
         // Reset error
         setEmailError("");
@@ -64,6 +64,11 @@ const Login = () => {
                     toast.error("Please check your internet connection");
                 }
             });
+
+        // Reset input field
+        e.preventDefault();
+        e.target.email.value = "";
+        e.target.password.value = "";
 
     };
 

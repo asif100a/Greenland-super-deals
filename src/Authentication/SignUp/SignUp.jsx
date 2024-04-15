@@ -5,21 +5,24 @@ import { useState } from "react";
 import toast, { Toaster } from 'react-hot-toast';
 import auth from "../../firebase/firebase.config";
 import { updateProfile } from "firebase/auth";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 
 const SignUp = () => {
     const { emailAndPasswordToSignIn, user } = useAuth();
 
     const [passwordError, setPasswordError] = useState("");
     const [repeatError, setRepeatError] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
 
     const {
         register,
         handleSubmit,
+        // resetField,
         formState: { errors },
     } = useForm();
 
-    const onSubmit = (data) => {
-        const {
+    const onSubmit = (data, e) => {
+        let {
             name,
             email,
             photo_url,
@@ -29,6 +32,7 @@ const SignUp = () => {
 
         const user = auth;
         console.log(user)
+
 
         // Reset error
         setPasswordError("");
@@ -77,7 +81,21 @@ const SignUp = () => {
                     toast.error("Please check your internet connection");
                 }
             });
+
+        // Reset field
+        e.preventDefault();
+        // const form = new FormData(e.currentTarget);
+        // console.log(form)
+        // const name2 = form.get('name');
+        // console.log(name2)
+        e.target.name.value = "";
+        e.target.email.value = "";
+        e.target.photo_url.value = "";
+        e.target.password.value = "";
+        e.target.repeatPassword.value = "";
+        e.target.terms.checked = false;
     }
+
 
     return (
         <div className="w-full h-full flex justify-center items-center mt-12 mb-12">
@@ -88,6 +106,7 @@ const SignUp = () => {
                     <input
                         {...register("name", { required: true })}
                         type="text"
+                        name="name"
                         id="name"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                         placeholder="Enter your name"
@@ -99,6 +118,7 @@ const SignUp = () => {
                     <input
                         {...register("email", { required: true })}
                         type="email"
+                        name="email"
                         id="email"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                         placeholder="Enter your email"
@@ -110,6 +130,7 @@ const SignUp = () => {
                     <input
                         {...register("photo_url", { required: true })}
                         type="text"
+                        name="photo_url"
                         id="photo_url"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                         placeholder="Enter your photo url"
@@ -118,13 +139,21 @@ const SignUp = () => {
                 </div>
                 <div className="mb-5">
                     <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900">Your password</label>
-                    <input
-                        {...register("password", { required: true })}
-                        type="password"
-                        id="password"
-                        className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                        placeholder="Enter your password"
-                    />
+                    <div className="relative">  
+                        <input
+                            {...register("password", { required: true })}
+                            type={showPassword ? 'text' : 'password'}
+                            name="password"
+                            id="password"
+                            className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            placeholder="Enter your password"
+                        />
+                        <span onClick={() => setShowPassword(!showPassword)} className="absolute right-3 bottom-3">
+                            {
+                                showPassword && <FaRegEyeSlash /> || <FaRegEye />
+                            }
+                        </span>
+                    </div>
                     {errors.password && <span className="text-red-500">Please fill out this field</span>}
                     <p className="text-red-500">{passwordError}</p>
                 </div>
@@ -133,6 +162,7 @@ const SignUp = () => {
                     <input
                         {...register("repeatPassword", { required: true })}
                         type="password"
+                        name="repeatPassword"
                         id="repeat-password"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                         placeholder="Repeat your password"
@@ -147,6 +177,7 @@ const SignUp = () => {
                                 {...register("checkbox", { required: true })}
                                 id="terms"
                                 type="checkbox"
+                                name="checkbox"
                                 value=""
                                 className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300"
                             />

@@ -1,8 +1,9 @@
+import errPhoto from '../../assets/404_page_cover.jpg'
+
 const ErrorPage = () => {
     return (
-        <div className='flex flex-col justify-center items-center'>
-            <h1 className="text-5xl">404</h1>
-            <p className='text-4xl'>Your page not found</p>
+        <div className='flex justify-center items-center'>
+            <img src={errPhoto} alt="" className='w-[80%] h-screen' />
         </div>
     );
 };
