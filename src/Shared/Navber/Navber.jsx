@@ -1,7 +1,9 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import logo from '../../../public/logo.png';
-import './navStyle.css'
+import './navStyle.css';
+import userDefaultPhoto from '../../assets/images.png';
+import { useEffect, useState } from "react";
 
 const Navber = () => {
     const { user, logOutUser } = useAuth();
@@ -9,6 +11,18 @@ const Navber = () => {
     const handleSingOut = () => {
         logOutUser();
     };
+
+    const [userPhoto, setUserPhoto] = useState(userDefaultPhoto);
+
+    useEffect(() => {
+        const profilePhoto = user?.photoURL.includes('https');
+        if (profilePhoto === false) {
+            setUserPhoto(userDefaultPhoto);
+        }
+        else if (profilePhoto === true) {
+            setUserPhoto(user.photoURL);
+        }
+    }, [user?.photoURL]);
 
     const navLinks = <>
         <li><NavLink to={'/'}>Home</NavLink></li>
@@ -25,7 +39,7 @@ const Navber = () => {
                     </div>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content right-0 mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                         {navLinks}
-                        <li>{ user ?<Link onClick={handleSingOut}>Log out</Link>  : <NavLink to={'/login'}>Login</NavLink>}</li>
+                        <li>{user ? <Link onClick={handleSingOut}>Log out</Link> : <NavLink to={'/login'}>Login</NavLink>}</li>
                     </ul>
                 </div>
                 <Link to={'/'} className="text-2xl font-semibold hover:cursor-pointer flex justify-between md:justify-center items-center gap-1"><img src={logo} alt="" className="w-8 md:w-12 h-8 md:h-12 border border-green-600 bg-white" /><span className="">Greenland Super Deals</span></Link>
@@ -41,17 +55,22 @@ const Navber = () => {
                 {
                     user &&
                     <>
-                        <div className="profile md:mr-6 hidden lg:flex">
+                        <div className="profile md:mr-3 hidden lg:flex">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                <div className="w-10 rounded-full">
-                                    <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                <div className="w-10 rounded-full mx-auto flex justify-center items-center">
+                                    <div className="w-fit h-fit">
+                                        <img alt="User image" src={userPhoto} />
+                                    </div>
                                 </div>
                             </div>
                             <ul tabIndex={0} className="menu menu-sm profile-child mt-3 z-[1] p-2 shadow bg-base-100 rounded-md w-52">
                                 <li><a className="text-orange-600">{user.displayName}</a></li>
                             </ul>
                         </div>
-                        <button className="btn mr-6 hidden lg:flex">
+                        <button className="btn btn-ghost mr-3 hidden lg:flex">
+                            <Link to={'/your_profile'}>Your profile</Link>
+                        </button>
+                        <button className="btn btn-ghost mr-3 hidden lg:flex">
                             <Link to={'/update_profile'}>Update profile</Link>
                         </button>
                     </>
