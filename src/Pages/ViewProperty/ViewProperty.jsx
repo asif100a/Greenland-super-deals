@@ -19,7 +19,7 @@ const ViewProperty = () => {
 
     return (
         <div className="py-12 w-full">
-            <div className="w-full md:w-[80%] h-[1330px] md:h-[1200px] lg:h-[676px] rounded-lg absolute bg-cover bg-center bg-no-repeat z-[-1] blur-md" style={{ backgroundImage: `url(${image_url})` }}> </div>
+            <div className="w-full md:w-[80%] h-[1330px] md:h-[1200px] lg:h-[676px] rounded-lg absolute bg-cover bg-center bg-no-repeat z-[-1] blur-md" style={{ backgroundImage: `url(${image_url})` }}><div className="w-full h-full bg-black bg-opacity-20"></div></div>
 
             <div className="flex flex-col p-6 lg:flex-row md:max-w-full h-[1330px] md:h-[1200px] lg:h-[676px] text-white">
                 <div className="md:min-w-[40%]">
