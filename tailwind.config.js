@@ -5,7 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        noto_serif: ['"Noto Serif", serif'],
+        pt_serif: ['"PT Serif", serif'],
+      },
+    },
     animatedSettings: {
       animatedSpeed: 1000,
       heartBeatSpeed: 500,

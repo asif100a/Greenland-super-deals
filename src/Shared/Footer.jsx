@@ -9,10 +9,10 @@ const Footer = () => {
                         <div className="flex lg:items-center justify-center w-12 h-12 rounded-full dark:bg-violet-600">
                             <img src={logo} alt="" className='border border-green-600' />
                         </div>
-                        <span className="self-center text-2xl font-semibold">Greenland Super Deals</span>
+                        <span className="self-center text-2xl font-semibold font-noto_serif">Greenland Super Deals</span>
                     </a>
                 </div>
-                <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-3">
+                <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-3 font-pt_serif">
                     <div className="space-y-3">
                         <h3 className="tracking-wide uppercase dark:text-gray-900 font-semibold">Product</h3>
                         <ul className="space-y-1">
@@ -64,7 +64,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="py-6 text-sm text-center dark:text-gray-600">© All rights reserved by Greenland Super Deals.</div>
+            <div className="py-6 text-sm text-center dark:text-gray-600 font-pt_serif">© All rights reserved by Greenland Super Deals.</div>
         </footer>
     );
 };
