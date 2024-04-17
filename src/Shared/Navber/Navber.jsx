@@ -15,7 +15,7 @@ const Navber = () => {
     const [userPhoto, setUserPhoto] = useState(userDefaultPhoto);
 
     useEffect(() => {
-        const profilePhoto = user?.photoURL.includes('https');
+        const profilePhoto = user?.photoURL?.includes('https');
         if (profilePhoto === false) {
             setUserPhoto(userDefaultPhoto);
         }
@@ -39,6 +39,7 @@ const Navber = () => {
                     </div>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content right-0 mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 font-pt_serif">
                         {navLinks}
+                        <li><NavLink to={'/update_profile'}>My profile</NavLink></li>
                         <li>{user ? <Link onClick={handleSingOut}>Log out</Link> : <NavLink to={'/login'}>Login</NavLink>}</li>
                     </ul>
                 </div>
@@ -67,9 +68,7 @@ const Navber = () => {
                                 <li><a className="text-orange-600 font-pt_serif">{user.displayName}</a></li>
                             </ul>
                         </div>
-                        <button className="btn btn-ghost mr-3 hidden lg:flex font-pt_serif">
-                            <Link to={'/your_profile'}>Your profile</Link>
-                        </button>
+                        
                         <button className="btn btn-ghost mr-3 hidden lg:flex font-pt_serif">
                             <Link to={'/update_profile'}>Update profile</Link>
                         </button>

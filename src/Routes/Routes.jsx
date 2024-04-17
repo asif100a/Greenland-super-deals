@@ -9,7 +9,6 @@ import PrivateRoute from "../ProtectedRoute/PrivateRoute";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import ContactUs from "../Pages/ContactUs/ContactUs";
 import UpdateProfile from "../Pages/UpdateProfile/UpdateProfile";
-import YourProfile from "../Pages/YourProfile/YourProfile";
 
 const routes = createBrowserRouter([
     {
@@ -41,10 +40,6 @@ const routes = createBrowserRouter([
             {
                 path: '/update_profile',
                 element: <UpdateProfile />
-            },
-            {
-                path: '/your_profile',
-                element: <YourProfile />
             },
             {
                 path: '/about_us',

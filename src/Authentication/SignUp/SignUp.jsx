@@ -17,7 +17,6 @@ const SignUp = () => {
     const {
         register,
         handleSubmit,
-        // resetField,
         formState: { errors },
     } = useForm();
 
@@ -84,10 +83,6 @@ const SignUp = () => {
 
         // Reset field
         e.preventDefault();
-        // const form = new FormData(e.currentTarget);
-        // console.log(form)
-        // const name2 = form.get('name');
-        // console.log(name2)
         e.target.name.value = "";
         e.target.email.value = "";
         e.target.photo_url.value = "";
