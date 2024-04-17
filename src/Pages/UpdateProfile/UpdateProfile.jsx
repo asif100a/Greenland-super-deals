@@ -3,6 +3,7 @@ import useAuth from "../../Hooks/useAuth";
 import defaultPhoto from '../../assets/images.png';
 import { MdOutlineInsertPhoto } from "react-icons/md";
 import { useForm } from "react-hook-form";
+import toast, { Toaster } from "react-hot-toast";
 
 const UpdateProfile = () => {
     const { user, editUserProfile } = useAuth();
@@ -33,20 +34,28 @@ const UpdateProfile = () => {
         e.preventDefault();
         textRef.current.classList.remove('hidden');
     };
-    
+
     // Get modal input value & Set changes
     const onSubmit = (data) => {
 
         const { name, photo_url } = data;
         console.log(name, photo_url)
 
+        if (name === '') {
+            return toast.error('Please provide a name');
+        }
+        else if (photo_url === '') {
+            return toast.error('Please provide a photo url');
+        }
+
         // Save edit in firebase
         editUserProfile(name, photo_url)
-            .then(res => console.log(res))
-            .catch(err => console.error(err));
+        handleHideInputModal();
 
-       // Remove the modal after submit
-       handleHideInputModal()
+        // .then(res => console.log(res))
+        // .catch(err => console.error(err));
+
+        // Remove the modal after submit
     };
 
     const handleHideInputModal = () => {
@@ -136,7 +145,7 @@ const UpdateProfile = () => {
                                     type="text"
                                     className="grow"
                                     defaultValue={user?.displayName}
-                                {...register('name')}
+                                    {...register('name')}
                                 />
                             </label>
                             <label className="input input-bordered flex items-center gap-2">
@@ -145,7 +154,7 @@ const UpdateProfile = () => {
                                     type="text"
                                     className="grow"
                                     defaultValue={user?.photoURL}
-                                {...register('photo_url')}
+                                    {...register('photo_url')}
                                 />
                             </label>
                             <button className="bg-green-400 px-3 py-1 rounded-md">Save the changes</button>
@@ -153,6 +162,7 @@ const UpdateProfile = () => {
                     </div>
                 </div>
             </div>
+            <Toaster />
         </div>
     );
 };
