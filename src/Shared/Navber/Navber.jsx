@@ -28,6 +28,7 @@ const Navber = () => {
         <li><NavLink to={'/'}>Home</NavLink></li>
         <li><NavLink to={'/about_us'}>About us</NavLink></li>
         <li><NavLink to={'/contact_us'}>Contact us</NavLink></li>
+        <li><NavLink to={'/facilities'}>Facilities</NavLink></li>
     </>
 
     return (

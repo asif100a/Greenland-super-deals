@@ -9,6 +9,7 @@ import PrivateRoute from "../ProtectedRoute/PrivateRoute";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import ContactUs from "../Pages/ContactUs/ContactUs";
 import UpdateProfile from "../Pages/UpdateProfile/UpdateProfile";
+import Facilities from "../Pages/Facilities/Facilities";
 
 const routes = createBrowserRouter([
     {
@@ -48,6 +49,10 @@ const routes = createBrowserRouter([
             {
                 path: '/contact_us',
                 element: <ContactUs />
+            },
+            {
+                path: '/facilities',
+                element: <PrivateRoute><Facilities /></PrivateRoute>
             }
         ]
     }

@@ -36,27 +36,27 @@ const UpdateProfile = () => {
     };
 
     // Get modal input value & Set changes
-    const onSubmit = (data) => {
+        const onSubmit = (data) => {
 
-        const { name, photo_url } = data;
-        console.log(name, photo_url)
-
-        if (name === '') {
-            return toast.error('Please provide a name');
-        }
-        else if (photo_url === '') {
-            return toast.error('Please provide a photo url');
-        }
-
-        // Save edit in firebase
-        editUserProfile(name, photo_url)
-        handleHideInputModal();
-
-        // .then(res => console.log(res))
-        // .catch(err => console.error(err));
-
-        // Remove the modal after submit
-    };
+            const { name, photo_url } = data;
+            console.log(name, photo_url)
+    
+            if (name === '') {
+                return toast.error('Please provide a name');
+            }
+            else if (photo_url === '') {
+                return toast.error('Please provide a photo url');
+            }
+    
+            // Save edit in firebase
+            editUserProfile(name, photo_url)
+            handleHideInputModal();
+    
+            // .then(res => console.log(res))
+            // .catch(err => console.error(err));
+    
+            // Remove the modal after submit
+        };
 
     const handleHideInputModal = () => {
         // e.preventDefault();
@@ -70,14 +70,14 @@ const UpdateProfile = () => {
         <div
             className="w-fit h-screen flex justify-center items-center mx-auto">
             <div
-                className="w-[92%] md:w-[20rem] h-[27rem] rounded-lg bg-cover bg-center absolute -z-10 blur-lg"
+                className="w-[80%] md:w-[20rem] h-[27rem] mx-auto rounded-lg bg-cover bg-center absolute -z-10 blur-lg"
                 style={{ backgroundImage: `url(${user?.photoURL})` }}>
                 <div
-                    className="w-full h-full bg-black bg-opacity-20">
+                    className="w-[90%] md:w-full mx-auto h-full bg-black bg-opacity-20">
                 </div>
             </div>
 
-            <div className="flex flex-col justify-center border rounded-lg mx-auto p-8 w-[95%] md:w-auto">
+            <div className="flex flex-col justify-center border rounded-lg mx-auto p-2 md:p-8 py-4 md:py-8 w-[100%] md:w-auto">
                 <div className="avatar mx-auto">
                     <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                         <img src={userPhoto} />
@@ -89,14 +89,14 @@ const UpdateProfile = () => {
                         <p
                             className="text-white">Name :</p>
                         <p
-                            className="border px-3 py-1 rounded-md pt-2 bg-white bg-opacity-40 text-white">
+                            className="border px-3 py-1 rounded-md pt-2 bg-white bg-opacity-40 text-white w-[20rem]">
                             {user?.displayName}</p>
                     </div>
                     <div className="font-noto_serif text-sm">
                         <p
                             className="text-white">Email :</p>
                         <p
-                            className="border px-3 py-1 rounded-md pt-2 bg-white bg-opacity-40 text-white">
+                            className="border px-3 py-1 rounded-md pt-2 bg-white bg-opacity-40 text-white w-[20rem]">
                             {user?.email}</p>
                     </div>
                     <div className="font-noto_serif text-sm">

@@ -13,7 +13,7 @@ import 'swiper/css/scrollbar';
 const Banner = () => {
   const greenland = '"Greenland Super Firms"'
   return (
-    <div className=''>
+    <div className='pb-6'>
       <div className='mb-8'>
         <h1 className='text-4xl font-bold text-center mb-6 pt-6 font-noto_serif'>Greenland Super Deals</h1>
         <p className="mt-6 w-[90%] lg:w-[48rem] text-center mx-auto font-pt_serif">In recent years, Greenland super firms has been quietly undergoing a transformation, positioning itself as a new frontier for economic expansion. Among the most notable developments is the emergence of what experts are terming {greenland} — companies </p>
@@ -43,7 +43,7 @@ const Banner = () => {
       </div>
 
       <div className='text-center mt-16 space-y-6'>
-        <h1 className='text-4xl font-bold text-[#111010] font-noto_serif'>Best Aggricultural Deals</h1>
+        <h1 className='text-4xl font-bold text-[#111010] font-noto_serif'>Best Agricultural Deals</h1>
         <p className='text-base font-normal text-[#000000b3] w-[90%] lg:w-[48rem] mx-auto font-pt_serif'>Hayden Outdoors represents hundreds of farms for sale from coast to coast. From fully operational farms to sections and smaller tracts, our team of land brokers offer exceptional farm ground for sale.</p>
       </div>
     </div>
