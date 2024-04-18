@@ -4,12 +4,14 @@ import logo from '../../../public/logo.png';
 import './navStyle.css';
 import userDefaultPhoto from '../../assets/images.png';
 import { useEffect, useState } from "react";
+import { BiLogOutCircle, BiLogInCircle } from "react-icons/bi";
+// import toast from "react-hot-toast";
 
 const Navber = () => {
     const { user, logOutUser } = useAuth();
 
     const handleSingOut = () => {
-        logOutUser();
+        logOutUser()
     };
 
     const [userPhoto, setUserPhoto] = useState(userDefaultPhoto);
@@ -25,7 +27,7 @@ const Navber = () => {
     }, [user?.photoURL]);
 
     const navLinks = <>
-        <li><NavLink to={'/'}>Home</NavLink></li>
+        <li className="bg-white"><NavLink to={'/'}>Home</NavLink></li>
         <li><NavLink to={'/about_us'}>About us</NavLink></li>
         <li><NavLink to={'/contact_us'}>Contact us</NavLink></li>
         <li><NavLink to={'/facilities'}>Facilities</NavLink></li>
@@ -38,7 +40,7 @@ const Navber = () => {
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </div>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content right-0 mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 font-pt_serif">
+                    <ul tabIndex={0} className="menu-sm dropdown-content right-0 mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 font-pt_serif">
                         {navLinks}
                         <li><NavLink to={'/update_profile'}>My profile</NavLink></li>
                         <li>{user ? <Link onClick={handleSingOut}>Log out</Link> : <NavLink to={'/login'}>Login</NavLink>}</li>
@@ -47,7 +49,7 @@ const Navber = () => {
                 <Link to={'/'} className="text-2xl font-semibold hover:cursor-pointer flex justify-between md:justify-center items-center gap-1"><img src={logo} alt="" className="w-8 md:w-12 h-8 md:h-12 border border-green-600 bg-white" /><span className="font-noto_serif text-green-600">Greenland Super Deals</span></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1 font-pt_serif">
+                <ul className="menu-horizontal px-2 space-x-6 font-pt_serif">
                     {navLinks}
                 </ul>
             </div>
@@ -70,7 +72,7 @@ const Navber = () => {
                             </ul>
                         </div>
                         
-                        <button className="btn btn-ghost mr-3 hidden lg:flex font-pt_serif">
+                        <button className="btn btn-ghost btn-sm text-green-600 hover:bg-white hover:border hover:border-green-600 mr-3 hidden lg:flex font-pt_serif">
                             <Link to={'/update_profile'}>Update profile</Link>
                         </button>
                     </>
@@ -79,8 +81,8 @@ const Navber = () => {
                 }
 
                 {
-                    user ? <Link onClick={handleSingOut} className="btn hidden lg:flex">Log out</Link> :
-                        <Link to={'/login'} className="btn hidden lg:flex">Login</Link>
+                    user ? <Link onClick={handleSingOut} className="btn btn-sm text-red-600 bg-white border-2 border-red-600 hover:border-2 hover:border-red-600 hover:bg-red-100 hidden lg:flex"><BiLogOutCircle /> Log out</Link> :
+                        <Link to={'/login'} className="btn btn-sm text-green-600 bg-white border-2 border-green-600 hover:border-2 hover:border-green-600 hover:bg-green-100 hidden lg:flex"> <BiLogInCircle />Login</Link>
                 }
             </div>
         </div>
